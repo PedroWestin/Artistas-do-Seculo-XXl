@@ -28,8 +28,8 @@ Entrega 1 de trabalho da disciplina Estruturas de Dados II — UNICID Prof. Cid 
   </tr>
   
   <tr>
-    <td>Gabi</td>
-    <td></td>
+    <td>Gabrielly Ohane dos Santos</td>
+    <td>37280431</td>
   </tr>
 </table>
 
