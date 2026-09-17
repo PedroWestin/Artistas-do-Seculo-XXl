@@ -132,4 +132,4 @@ Plaintext
 /resultados  → saídas e relatórios de desempenho
 README.md    → documentação do projeto
 
-## 5 Referências 
+## 5 Referências:
