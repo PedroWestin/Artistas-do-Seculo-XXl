@@ -47,9 +47,6 @@ Entrega 1 de trabalho da disciplina Estruturas de Dados II — UNICID Prof. Cid 
 
 ### 1.3 Estrutura dos dados
 Atributos relevantes utilizados como chave de inserção, busca e comparação:
-* `id` (`int`) – Chave primária / identificador único
-* `nome` / `titulo` (`string`) – Chave secundária para buscas textuais
-* `valor` / `preco` (`float`) – Atributo numérico para comparações e ordenações
 * `id` (`int`) – Identificador único atribuído internamente pelo grupo a cada registro, utilizado como chave principal nas estruturas de dados.
 * `chart_week` (`string`) – Data da semana correspondente ao registro na parada.
 * `position` (`int`) – Posição ocupada pela música na parada naquela semana.
