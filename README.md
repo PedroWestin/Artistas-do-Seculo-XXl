@@ -43,7 +43,7 @@ Entrega 1 de trabalho da disciplina Estruturas de Dados II — UNICID Prof. Cid 
 * **Volume:** [Ex: 150.000 registros, contendo dados complexos/compostos]
 
 ### 1.2 Fonte
-* **Referência:** [Link para o Kaggle, API, repositório ou menção de que foram gerados sinteticamente pelo grupo]
+* **Referência:** Dataset da Billboard Hot 100 disponibilizado para utilização no projeto, contendo registros semanais de músicas entre 2000 e 2026.
 
 ### 1.3 Estrutura dos dados
 Atributos relevantes utilizados como chave de inserção, busca e comparação:
