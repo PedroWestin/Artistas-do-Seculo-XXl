@@ -52,9 +52,11 @@ Atributos relevantes utilizados como chave de inserção, busca e comparação:
 * `valor` / `preco` (`float`) – Atributo numérico para comparações e ordenações
 
 ### 1.4 Justificativa da escolha
-O dataset é adequado por apresentar um volume expressivo (dentro da faixa de 50 mil a 1 milhão de registros) e conter tipos de dados variados (inteiros, strings e ponto flutuante), permitindo avaliar o comportamento da árvore sob diferentes distribuições de chaves.
+O dataset foi escolhido por apresentar um volume expressivo de 50.000 registros, permitindo trabalhar com uma quantidade significativa de dados e avaliar o comportamento das estruturas de dados implementadas.
 
----
+Além do volume, os registros apresentam diferentes tipos de dados, incluindo inteiros, strings e valores de ponto flutuante, possibilitando o armazenamento e manipulação de informações variadas.
+
+A quantidade de registros e a diversidade dos atributos tornam o dataset adequado para a implementação e análise das árvores AVL e Rubro-Negra, escolhidas pelo grupo para trabalhar com uma grande quantidade de dados mantendo a estrutura balanceada durante as operações.
 
 ## 2. Estrutura(s) de Árvore Escolhida(s)
 
