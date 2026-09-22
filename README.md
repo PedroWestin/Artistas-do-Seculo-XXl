@@ -50,6 +50,12 @@ Atributos relevantes utilizados como chave de inserção, busca e comparação:
 * `id` (`int`) – Chave primária / identificador único
 * `nome` / `titulo` (`string`) – Chave secundária para buscas textuais
 * `valor` / `preco` (`float`) – Atributo numérico para comparações e ordenações
+* `id` (`int`) – Identificador único atribuído internamente pelo grupo a cada registro, utilizado como chave principal nas estruturas de dados.
+* `chart_week` (`string`) – Data da semana correspondente ao registro na parada.
+* `position` (`int`) – Posição ocupada pela música na parada naquela semana.
+* `peak_pos` (`int`) – Melhor posição alcançada pela música na parada.
+* `wks_on_chart` (`int`) – Quantidade de semanas em que a música permaneceu na parada.
+* `title` (`string`) – Título da música.
 
 ### 1.4 Justificativa da escolha
 O dataset foi escolhido por apresentar um volume expressivo de 50.000 registros, permitindo trabalhar com uma quantidade significativa de dados e avaliar o comportamento das estruturas de dados implementadas.
