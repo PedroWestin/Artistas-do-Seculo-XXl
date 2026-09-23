@@ -53,6 +53,14 @@ Atributos relevantes utilizados como chave de inserção, busca e comparação:
 * `peak_pos` (`int`) – Melhor posição alcançada pela música na parada.
 * `wks_on_chart` (`int`) – Quantidade de semanas em que a música permaneceu na parada.
 * `title` (`string`) – Título da música.
+* `performer` (`string`) – Artista ou intérprete associado à música.
+* `genre` (`string`) – Gênero ou gêneros musicais associados à música.
+* `danceability` (`float`) – Indicador numérico relacionado à dançabilidade da música.
+* `energy` (`float`) – Indicador numérico relacionado à energia da música.
+* `tempo` (`float`) – Andamento da música.
+* `valence` (`float`) – Indicador numérico relacionado à característica musical positiva ou negativa.
+* `popularity` (`int`) – Indicador numérico de popularidade.
+O atributo id será utilizado como chave principal para as operações de inserção, busca e remoção nas árvores AVL e Rubro-Negra. O id será gerado internamente durante o carregamento dos registros, pois o campo song_id presente no dataset original não possui unicidade entre todos os registros.
 
 ### 1.4 Justificativa da escolha
 O dataset foi escolhido por apresentar um volume expressivo de 50.000 registros, permitindo trabalhar com uma quantidade significativa de dados e avaliar o comportamento das estruturas de dados implementadas.
