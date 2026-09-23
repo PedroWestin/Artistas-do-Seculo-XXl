@@ -38,9 +38,9 @@ Entrega 1 de trabalho da disciplina Estruturas de Dados II — UNICID Prof. Cid 
 ## 1. Dataset
 
 ### 1.1 Descrição
-* **Origem/Domínio:** [Descrever a origem e o assunto dos dados, ex: Transações financeiras, registros de saúde, catálogo de produtos e-commerce]
-* **Formato:** [Ex: CSV / JSON / Parquet]
-* **Volume:** [Ex: 150.000 registros, contendo dados complexos/compostos]
+* **Origem/Domínio:** Registros semanais de músicas presentes na parada musical Billboard Hot 100, abrangendo o período de 2000 a 2026.
+* **Formato:** TXT, estruturado em campos separados por vírgulas.
+* **Volume:** 50.000 registros, contendo informações sobre músicas, artistas, posições na parada, permanência no ranking e características musicais, com dados dos tipos inteiro, string e ponto flutuante.
 
 ### 1.2 Fonte
 * **Referência:** Dataset da Billboard Hot 100 disponibilizado para utilização no projeto, contendo registros semanais de músicas entre 2000 e 2026.
