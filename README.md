@@ -1,4 +1,4 @@
-# Artistas-do-Seculo-XXl
+# Hot-100-Seculo-XXl
 
 Entrega 1 de trabalho da disciplina Estruturas de Dados II — UNICID Prof. Cid Rodrigues de Andrade
 
@@ -72,10 +72,10 @@ A quantidade de registros e a diversidade dos atributos tornam o dataset adequad
 ## 2. Estrutura(s) de Árvore Escolhida(s)
 
 ### 2.1 Estrutura(s)
-* [Ex: Árvore AVL / Árvore Rubro-Negra / B-Tree]
+* Árvore AVL | Árvore Rubro-Negra
 
 ### 2.2 Justificativa técnica
-A estrutura foi escolhida devido à necessidade de garantir **balanceamento automático**, evitando a degradação para o pior caso ($O(N)$) comum em BSTs simples. É ideal para cenários com grande volume de operações de busca e inserção.
+As estruturas foram escolhidas pois tanto a Árvore AVL quanto a Árvore Rubro-Negra são estruturas de dados auto-balanceáveis projetadas para resolver o maior problema das Árvores de Busca Binária (BST) comuns: o risco de desbalanceamento e a degradação do tempo de operação de $O(\log n)$ para $O(n)$. No entanto, elas abordam a eficiência por caminhos inversos. 
 
 ### 2.3 Operações implementadas (Para Entrega 2)
 * [ ] Inserção
@@ -88,11 +88,21 @@ A estrutura foi escolhida devido à necessidade de garantir **balanceamento auto
 ### 2.4 Complexidade
 Complexidade assintótica (Big-O) teórica de cada operação implementada:
 
+## Árvore AVL
+
 | Operação | Melhor caso | Caso médio | Pior caso |
 | :--- | :--- | :--- | :--- |
-| **Inserção** | $O(\log N)$ | $O(\log N)$ | $O(\log N)$ |
-| **Busca** | $O(\log N)$ | $O(\log N)$ | $O(\log N)$ |
-| **Remoção** | $O(\log N)$ | $O(\log N)$ | $O(\log N)$ |
+| **Inserção** | $O(1)$ | $O(\log N)$ | $O(\log N)$ |
+| **Busca** | $O(1)$ ou $O(\log N)$ | $O(\log N)$ | $O(\log N)$ |
+| **Remoção** | $O(1)$ ou $O(\log N)$ | $O(\log N)$ | $O(\log N)$ |
+
+## Árvore Rubro-Negra
+
+| Operação | Melhor caso | Caso médio | Pior caso |
+| :--- | :--- | :--- | :--- |
+| **Inserção** | $O(1)$ | $O(\log N)$ | $O(\log N)$ |
+| **Busca** | $O(1)$ | $O(\log N)$ | $O(\log N)$ |
+| **Remoção** | $O(1)$ | $O(\log N)$ | $O(\log N)$ |
 
 ---
 
