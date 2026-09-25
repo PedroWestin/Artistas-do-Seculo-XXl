@@ -156,3 +156,6 @@ Plaintext
 README.md    → documentação do projeto
 
 ## 5 Referências:
+Billboard Hot 100 weekly chart data — repositório `utdata/rwd-billboard-data` (GitHub).
+
+Características de áudio (Spotify) — arquivo "Hot 100 Audio Features" fornecido pelo grupo.
