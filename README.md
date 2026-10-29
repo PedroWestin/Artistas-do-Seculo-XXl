@@ -21,27 +21,28 @@ Trabalho da disciplina Estruturas de Dados II — UNICID Prof. Cid Rodrigues de 
 ### 1.3 Estrutura dos dados
 A chave de inserção, busca, comparação e remoção nas árvores é composta por dois campos:
 
-chart_week (string, formato AAAA-MM-DD) – semana da parada.
-position (int, de 1 a 100) – posição ocupada na parada naquela semana.
+* `chart_week` (`string, formato AAAA-MM-DD`) – semana da parada.
+* `position` (`int, de 1 a 100`) – posição ocupada na parada naquela semana.
 Em uma mesma semana cada posição é ocupada por uma única música, então o par (chart_week, position) identifica um registro de forma única. Isso foi verificado nos 50.000 registros do dataset: nenhum par se repete. O song_id original não serve como chave porque a mesma música aparece em várias semanas (são cerca de 9.500 músicas distintas nos 50.000 registros).
-Comparador customizado (comparaChave(a, b)): devolve valor negativo, zero ou positivo.
+* Comparador customizado (comparaChave(a, b)): devolve valor negativo, zero ou positivo.
 Compara chart_week com strcmp. Como o formato é AAAA-MM-DD, a ordem alfabética coincide com a ordem cronológica.
 Se as semanas forem iguais, compara position numericamente.
 Se as duas partes forem iguais, as chaves são iguais.
 O mesmo comparador é usado na AVL e na Rubro-Negra, para que a comparação entre as duas árvores seja justa.
 Campos do registro
-chart_week (string) – Data da semana correspondente ao registro na parada. (parte 1 da chave)
-position (int) – Posição ocupada pela música na parada naquela semana. (parte 2 da chave)
-peak_pos (int) – Melhor posição alcançada pela música na parada.
-wks_on_chart (int) – Quantidade de semanas em que a música permaneceu na parada.
-title (string) – Título da música.
-performer (string) – Artista ou intérprete associado à música.
-genre (string) – Gênero ou gêneros musicais associados à música.
-danceability (float) – Indicador numérico relacionado à dançabilidade da música.
-energy (float) – Indicador numérico relacionado à energia da música.
-tempo (float) – Andamento da música.
-valence (float) – Indicador numérico relacionado à característica musical positiva ou negativa.
-popularity (int) – Indicador numérico de popularidade.
+
+* `chart_week` (`string`) – Data da semana correspondente ao registro na parada. (parte 1 da chave)
+* `position` (`int`) – Posição ocupada pela música na parada naquela semana. (parte 2 da chave)
+* `peak_pos` (`int`) – Melhor posição alcançada pela música na parada.
+* `wks_on_chart` (`int`) – Quantidade de semanas em que a música permaneceu na parada.
+* `title` (`string`) – Título da música.
+* `performer` (`string`) – Artista ou intérprete associado à música.
+* `genre` (`string`) – Gênero ou gêneros musicais associados à música.
+* `danceability` (`float`) – Indicador numérico relacionado à dançabilidade da música.
+* `energy` (`float`) – Indicador numérico relacionado à energia da música.
+* `tempo` (`float`) – Andamento da música.
+* `valence` (`float`) – Indicador numérico relacionado à característica musical positiva ou negativa.
+* `popularity` (`int`) – Indicador numérico de popularidade.
 O song_id do arquivo original não é guardado nos nós, pois se repete entre as semanas. O campo id gerado sequencialmente no carregamento deixa de ser a chave e passa a ser apenas o número de ordem do registro no arquivo, sem participar das comparações.
 Campos sem valor: em parte dos registros (cerca de 25%) as características de áudio (danceability, energy, tempo, valence, popularity) vêm vazias, e em cerca de 22% o genre também. Esses campos não fazem parte da chave, então o registro continua sendo carregado normalmente.
 
@@ -100,7 +101,7 @@ Busca	$O(1)$	$O(\log N)$	$O(\log N)$
 Remoção	$O(1)$	$O(\log N)$	$O(\log N)$
 
 ## 3. Plano de Testes
-3.1 Objetivo dos testes
+### 3.1 Objetivo dos testes
 Validar a corretude das operações lógicas, a estabilidade do balanceamento sob carga e o desempenho temporal com grandes massas de dados, comparando a Árvore AVL com a Árvore Rubro-Negra sobre o mesmo dataset de 50.000 registros e a mesma chave composta (chart_week, position).
 
 ### 3.2 Cenários de teste
@@ -156,7 +157,7 @@ cd <pasta>
 /resultados  → saídas e relatórios de desempenho
 README.md    → documentação do projeto
 
-### 5 Referências:
+## 5 Referências:
 Billboard Hot 100 weekly chart data — repositório utdata/rwd-billboard-data (GitHub).
 Características de áudio (Spotify) — arquivo "Hot 100 Audio Features" fornecido pelo grupo.
  
