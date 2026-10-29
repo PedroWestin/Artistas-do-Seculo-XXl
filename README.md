@@ -120,11 +120,20 @@ Validar a corretude das operações lógicas, a estabilidade do balanceamento so
 | 3 | Remoção de nó com dois filhos | Chave intermediária | Reestruturação correta da árvore | ☐ |
 
 ### 3.3 Casos extremos (edge cases)
-* Liberação e destruição total da árvore
-* Validação Estrita da Cor Raiz (Rubro-Negra)
-* Chaves estritamente duplicadas e colisão de nós
-* Inserção em padrão em forma de V e V invertido
-* Chaves com ampla dispersão
+1. Árvore Vazia
+* Objetivo: Garantir que a estrutura lida corretamente com operações em uma árvore recém-criada, sem corromper a memória ou gerar exceções de ponteiro nulo (NULL pointer exception).
+
+2. Inserção de um Único Elemento
+* Objetivo: Validar a transição correta da árvore de um estado vazio para um estado com exatamente um nó (a raiz).
+
+3. Inserção de Dados Duplicados
+* Objetivo: Verificar o comportamento da árvore quando chaves repetidas são inseridas, conforme a regra de negócio definida para o seu projeto.
+
+4. Dados em Ordem Estritamente Crescente ou Decrescente (Pior Caso para BST)
+* Objetivo: Testar o comportamento da BST quando ela se degenera em uma estrutura linear (semelhante a uma lista encadeada), que é a maior vulnerabilidade de desempenho de uma BST tradicional.
+
+5. Teste com o Volume Máximo do Dataset
+* Objetivo: Avaliar a estabilidade, a eficiência de tempo de execução e o gerenciamento de memória sob carga máxima.
 
 ### 3.4 Testes de desempenho (Para Entrega 2)
 Descrever como o grupo mediu o tempo de execução e/ou uso de memória, utilizando tamanhos de entrada como $100$, $1.000$, $10.000$ e $100.000$ registros.
