@@ -44,7 +44,7 @@ Entrega 1 de trabalho da disciplina Estruturas de Dados II — UNICID Prof. Cid 
 
 ### 1.2 Fonte
 * **Referência:** Dataset da Billboard Hot 100 disponibilizado para utilização no projeto, contendo registros semanais de músicas entre 2000 e 2026.
-  https://www.kaggle.com/
+  https://www.kaggle.com/datasets?search=chart
 
 ### 1.3 Estrutura dos dados
 Atributos relevantes utilizados como chave de inserção, busca e comparação:
