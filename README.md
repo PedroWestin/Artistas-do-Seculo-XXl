@@ -80,63 +80,54 @@ Crescimento com o tamanho: o tempo total deve crescer de forma compatível com $
 Esses pontos são hipóteses a serem confirmadas ou refutadas nos testes de desempenho (seções 3.4 e 3.5).
 
 ### 2.3 Operações implementadas (Para Entrega 2)
-[ ] Inserção
-[ ] Remoção
-[ ] Busca
-[ ] Percursos (pré-ordem, em ordem, pós-ordem)
-[ ] Balanceamento (se aplicável)
-[ ] Outra: ______
+* [ ] Inserção
+* [ ] Remoção
+* [ ] Busca
+* [ ] Percursos (pré-ordem, em ordem, pós-ordem)
+* [ ] Balanceamento (se aplicável)
+* [ ] Outra: ______
 
 ### 2.4 Complexidade
 Complexidade assintótica (Big-O) teórica de cada operação implementada:
-Árvore AVL
-Operação	Melhor caso	Caso médio	Pior caso
-Inserção	$O(1)$	$O(\log N)$	$O(\log N)$
-Busca	$O(1)$ ou $O(\log N)$	$O(\log N)$	$O(\log N)$
-Remoção	$O(1)$ ou $O(\log N)$	$O(\log N)$	$O(\log N)$
-Árvore Rubro-Negra
-Operação	Melhor caso	Caso médio	Pior caso
-Inserção	$O(1)$	$O(\log N)$	$O(\log N)$
-Busca	$O(1)$	$O(\log N)$	$O(\log N)$
-Remoção	$O(1)$	$O(\log N)$	$O(\log N)$
+
+## Árvore AVL
+
+| Operação | Melhor caso | Caso médio | Pior caso |
+| :--- | :--- | :--- | :--- |
+| **Inserção** | $O(1)$ | $O(\log N)$ | $O(\log N)$ |
+| **Busca** | $O(1)$ ou $O(\log N)$ | $O(\log N)$ | $O(\log N)$ |
+| **Remoção** | $O(1)$ ou $O(\log N)$ | $O(\log N)$ | $O(\log N)$ |
+
+## Árvore Rubro-Negra
+
+| Operação | Melhor caso | Caso médio | Pior caso |
+| :--- | :--- | :--- | :--- |
+| **Inserção** | $O(1)$ | $O(\log N)$ | $O(\log N)$ |
+| **Busca** | $O(1)$ | $O(\log N)$ | $O(\log N)$ |
+| **Remoção** | $O(1)$ | $O(\log N)$ | $O(\log N)$ |
+
+---
 
 ## 3. Plano de Testes
 ### 3.1 Objetivo dos testes
 Validar a corretude das operações lógicas, a estabilidade do balanceamento sob carga e o desempenho temporal com grandes massas de dados, comparando a Árvore AVL com a Árvore Rubro-Negra sobre o mesmo dataset de 50.000 registros e a mesma chave composta (chart_week, position).
 
 ### 3.2 Cenários de teste
-Cenários de corretude
-#	Cenário	Entrada	Operação	Resultado esperado	Status
-1	Inserção básica	1.000 registros do dataset, em ordem embaralhada (semente fixa)	Inserir todos	Árvore com 1.000 nós, sem perdas; percurso em ordem devolve as chaves em ordem crescente	☐
-2	Busca por elemento inexistente	Chave fora do escopo do dataset (ex.: chart_week = 1999-01-01,
-position = 1)	Buscar	Retorno nulo / não encontrado	☐
-3	Remoção de nó com dois filhos	Chave intermediária de uma árvore já carregada	Remover	Nó removido, demais chaves preservadas, reestruturação correta e árvore ainda balanceada	☐
-4	Verificação de invariantes	Árvores carregadas com os 50.000 registros e depois submetidas a remoções	Verificar automaticamente após inserções e remoções	AVL: fator de balanceamento de todo nó entre −1 e 1. 
-Rubro-Negra: raiz preta; nenhum nó vermelho com filho vermelho; mesma altura negra em todos os caminhos da raiz às folhas	☐
-Cenários de desempenho e comparação AVL × Rubro-Negra
-#	Cenário	Entrada	Operação	Medição / resultado esperado	Status
-5	Inserção em ordem do arquivo (quase crescente)	Os primeiros N registros do arquivo, com N = 10.000, 25.000 e 50.000	Inserir todos, na ordem do arquivo	Tempo total, altura final, número de rotações e de comparações. Esperado: altura da AVL menor ou igual à da Rubro-Negra, e menos rotações na Rubro-Negra	☐
-6	Inserção em ordem aleatória	Os mesmos N registros do cenário 5, embaralhados com semente fixa	Inserir todos	Mesmas métricas do cenário 5, para comparar o efeito da ordem de entrada	☐
-7	Busca em árvore cheia	Árvore com N registros; 10.000 chaves existentes sorteadas com semente fixa	Buscar cada chave	Tempo total e número de comparações por busca. Esperado: crescimento compatível com $O(\log n)$	☐
-8	Remoção em massa	Árvore com 50.000 registros; remoção de 10.000 chaves sorteadas com semente fixa	Remover cada chave	Tempo total, número de rotações, altura final e invariantes ainda válidos. Esperado: menos rotações na Rubro-Negra	☐
+| # | Cenário | Entrada | Resultado esperado | Status |
+| :-: | :--- | :--- | :--- | :---: |
+| 1 | Inserção básica | Chaves aleatórias simples | Árvore balanceada e sem perdas | ☐ |
+| 2 | Busca por elemento inexistente | Chave fora do escopo | Retorno nulo / não encontrado | ☐ |
+| 3 | Remoção de nó com dois filhos | Chave intermediária | Reestruturação correta da árvore | ☐ |
 
 ### 3.3 Casos extremos (edge cases)
-Árvore vazia.
-Inserção de um único elemento.
-Inserção de dados duplicados.
-Dados inseridos em ordem estritamente crescente ou decrescente (pior caso para BST).
-Teste com o volume máximo do dataset.
+* Liberação e destruição total da árvore
+* Validação Estrita da Cor Raiz (Rubro-Negra)
+* Chaves estritamente duplicadas e colisão de nós
+* Inserção em padrão em forma de V e V invertido
+* Chaves com ampla dispersão
 
 ### 3.4 Testes de desempenho (Para Entrega 2)
-Tamanhos de entrada: 10.000, 25.000 e 50.000 registros, todos dentro do volume existente no dataset (50.000). Cada tamanho usa os primeiros N registros do arquivo, o que permite traçar tempo × tamanho e comparar a curva com $O(\log n)$ por operação.
-Métricas medidas em cada cenário:
-Tempo de execução: com relógio de alta resolução (por exemplo, clock_gettime com CLOCK_MONOTONIC em C), medindo apenas a operação testada, sem a leitura do arquivo.
-Altura final da árvore.
-Número de rotações (contador incrementado a cada rotação simples ou dupla).
-Número de comparações de chaves feitas pelo comparador.
-Repetições: cada cenário será executado 10 vezes. O resultado reportado será a mediana dos tempos, para reduzir o efeito de oscilações do sistema, junto com o mínimo e o máximo. Altura, rotações e comparações são determinísticas para uma mesma ordem de entrada e serão conferidas entre as repetições.
-Ordens de entrada: os cenários com inserção aleatória usam sempre a mesma semente do gerador de números aleatórios, para que a AVL e a Rubro-Negra recebam exatamente a mesma sequência.
-Condições de medição: todos os testes serão executados no mesmo computador, logo após ligá-lo e sem outros programas em execução, com o código compilado com as mesmas opções para as duas árvores.
+Descrever como o grupo mediu o tempo de execução e/ou uso de memória, utilizando tamanhos de entrada como $100$, $1.000$, $10.000$ e $100.000$ registros.
 
 ### 3.5 Resultados obtidos (Para Entrega 2)
 [Resuma aqui os resultados por meio de tabelas, gráficos ou links para arquivos de saída na pasta /resultados, comparando-os com a complexidade assintótica (Big-O) teórica].
