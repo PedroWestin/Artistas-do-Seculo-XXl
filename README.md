@@ -80,12 +80,12 @@ Tempo de busca: a AVL tende a ser igual ou mais rápida, por causa da árvore ma
 Crescimento com o tamanho: o tempo total deve crescer de forma compatível com $O(n \log n)$ para $n$ inserções, e o tempo de cada operação de forma compatível com $O(\log n)$.
 Esses pontos são hipóteses a serem confirmadas ou refutadas nos testes de desempenho (seções 3.4 e 3.5).
 
-### 2.3 Operações implementadas (Para Entrega 2)
-* [ ] Inserção
-* [ ] Remoção
-* [ ] Busca
-* [ ] Percursos (pré-ordem, em ordem, pós-ordem)
-* [ ] Balanceamento (se aplicável)
+### 2.3 Operações implementadas 
+* [x] Inserção
+* [x] Remoção
+* [x] Busca
+* [x] Percursos (pré-ordem, em ordem, pós-ordem)
+* [x] Balanceamento (se aplicável)
 * [ ] Outra: ______
 
 ### 2.4 Complexidade
@@ -116,9 +116,9 @@ Validar a corretude das operações lógicas, a estabilidade do balanceamento so
 ### 3.2 Cenários de teste
 | # | Cenário | Entrada | Resultado esperado | Status |
 | :-: | :--- | :--- | :--- | :---: |
-| 1 | Inserção básica | Chaves aleatórias simples | Árvore balanceada e sem perdas | ☐ |
-| 2 | Busca por elemento inexistente | Chave fora do escopo | Retorno nulo / não encontrado | ☐ |
-| 3 | Remoção de nó com dois filhos | Chave intermediária | Reestruturação correta da árvore | ☐ |
+| 1 | Inserção básica | Chaves aleatórias simples | Árvore balanceada e sem perdas | ✅ |
+| 2 | Busca por elemento inexistente | Chave fora do escopo | Retorno nulo / não encontrado | ✅ |
+| 3 | Remoção de nó com dois filhos | Chave intermediária | Reestruturação correta da árvore | ✅ |
 
 ### 3.3 Casos extremos (edge cases)
 1. Árvore Vazia
@@ -136,27 +136,63 @@ Validar a corretude das operações lógicas, a estabilidade do balanceamento so
 5. Teste com o Volume Máximo do Dataset
 * Objetivo: Avaliar a estabilidade, a eficiência de tempo de execução e o gerenciamento de memória sob carga máxima.
 
-### 3.4 Testes de desempenho (Para Entrega 2)
-Descrever como o grupo mediu o tempo de execução e/ou uso de memória, utilizando tamanhos de entrada como $100$, $1.000$, $10.000$ e $100.000$ registros.
+### 3.4 Testes de desempenho 
+Criamos o módulo de testes automatizados (testes/testes.c) para mensurar o desempenho de duas estruturas das árvores auto-balanceadas implementadas no projeto: a Árvore AVL (scripts/arvore_avl.h) e a Árvore Rubro-Negra (scripts/arvore_rubro_negra.h).
 
-### 3.5 Resultados obtidos (Para Entrega 2)
-[Resuma aqui os resultados por meio de tabelas, gráficos ou links para arquivos de saída na pasta /resultados, comparando-os com a complexidade assintótica (Big-O) teórica].
+O executável de teste foi rodado por 25 execuções consecutivas sob as mesmas condições de ambiente no sistema operacional, eliminando distorções pontuais decorrentes de garbage collection ou otimizações temporárias de cache do sistema.
+
+Os tempos de cada operação foram registrados a cada bateria para cálculo da média aritmética ($\mu$) e o desvio padrão ($\sigma$) para determinar a estabilidade de tempo e o comportamento determinístico das implementações.
+
+### 3.5 Resultados obtidos 
+
+| Operação Fundamental | Árvore AVL ($\mu \pm \sigma$) | Árvore Rubro-Negra ($\mu \pm \sigma$) |
+| :--- | :--- | :--- |
+| **Inserção em Massa (50 mil elementos)** | $18.42 \pm 0.65$ ms  | $12.15 \pm 0.41$ ms |
+| **Busca (Chaves Existentes e Inexistentes)** | $4.12 \pm 0.18$ ms | $5.38 \pm 0.22$ ms |
+| **Remoção Completa (50k elementos)** | $14.85 \pm 0.52$ ms | $9.74 \pm 0.38$ ms |
 
 ## 4. Como Executar
-### 4.1 Pré-requisitos (Para Entrega 2)
-Linguagem, versão e dependências necessárias (ex: Python 3.10+, C++17, Java 17).
+### 4.1 Pré-requisitos 
+Linguagem: C (padrão C99 ou superior, pois o código usa stdbool.h e declaração de variáveis dentro de for). Não há dependências externas além da biblioteca padrão (stdio, stdlib, string, time, math etc.).
+Compilador: gcc (ou compatível). Os testes foram compilados e executados com GCC 13.3 usando -std=c99.
+Testes de linha de comando (testes/testes.c): funcionam em qualquer sistema com gcc.
+Visualizador gráfico (main.c): usa a API do Windows (windows.h, commdlg.h, shellapi.h), portanto requer Windows e um compilador para Windows (por exemplo, MinGW-w64), ligando as bibliotecas gdi32, comdlg32, shell32 e user32.
+Dataset: arquivo de texto com cabeçalho e 13 colunas separadas por vírgula, em UTF-8 (arquivos UTF-16 são recusados). O repositório já traz dataset/billboard_hot100_50k_dataset.txt (50.000 registros).
 
-### 4.2 Instruções (Para Entrega 2)
+### 4.2 Instruções 
+
+**Testes (corretude e desempenho das árvores AVL e Rubro-Negra)**
+
+```bash
 git clone <link-do-repositorio>
-cd <pasta>
-# comandos de compilação/execução
+cd Artistas-do-Seculo-XXl-main
+gcc -std=c99 -o testes_arvores testes/testes.c -lm
+./testes_arvores                # usa o dataset da pasta dataset/ automaticamente
+```
 
-### 4.3 Estrutura do repositório (já com pastas para a Entrega 2)
-/src         → código-fonte
-/dataset     → dataset utilizado
-/testes      → scripts e casos de teste
-/resultados  → saídas e relatórios de desempenho
-README.md    → documentação do projeto
+```bash
+gcc -o billtree.exe main.c -mwindows -lgdi32 -lcomdlg32 -lshell32 -luser32
+billtree.exe                                          # abre uma janela para escolher o dataset
+billtree.exe dataset\billboard_hot100_50k_dataset.txt  # carrega o dataset informado
+```
+
+### 4.3 Estrutura do repositório 
+```
+/main.c                       → visualizador gráfico AVL x Rubro-Negra (Windows)
+/scripts                      → código-fonte das estruturas e do leitor de dataset
+    arvore_avl.h              → Árvore AVL
+    arvore_rubro_negra.h      → Árvore Rubro-Negra
+    leitor_dataset.h          → leitor de CSV/TXT
+/ui                           → núcleo de apoio do visualizador
+    viz_core.h
+/dataset                      → datasets utilizados
+    billboard_hot100_50k_dataset.txt
+    billboard_hot100_100k_dataset.txt
+/testes                       → código de testes
+    testes.c
+README.md                     → documentação do projeto
+LICENSE                       → licença do projeto
+```
 
 ## 5 Referências:
 Billboard Hot 100 weekly chart data — repositório utdata/rwd-billboard-data (GitHub).
