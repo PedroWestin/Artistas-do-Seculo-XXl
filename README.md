@@ -153,11 +153,11 @@ Os tempos de cada operação foram registrados a cada bateria para cálculo da m
 
 ## 4. Como Executar
 ### 4.1 Pré-requisitos 
-Linguagem: C (padrão C99 ou superior, pois o código usa stdbool.h e declaração de variáveis dentro de for). Não há dependências externas além da biblioteca padrão (stdio, stdlib, string, time, math etc.).
-Compilador: gcc (ou compatível). Os testes foram compilados e executados com GCC 13.3 usando -std=c99.
-Testes de linha de comando (testes/testes.c): funcionam em qualquer sistema com gcc.
-Visualizador gráfico (main.c): usa a API do Windows (windows.h, commdlg.h, shellapi.h), portanto requer Windows e um compilador para Windows (por exemplo, MinGW-w64), ligando as bibliotecas gdi32, comdlg32, shell32 e user32.
-Dataset: arquivo de texto com cabeçalho e 13 colunas separadas por vírgula, em UTF-8 (arquivos UTF-16 são recusados). O repositório já traz dataset/billboard_hot100_50k_dataset.txt (50.000 registros).
+* **Linguagem:** C (padrão C99 ou superior, pois o código usa `stdbool.h` e declaração de variáveis dentro de `for`). Não há dependências externas além da biblioteca padrão (`stdio`, `stdlib`, `string`, `time`, `math` etc.).
+* **Compilador:** `gcc` (ou compatível). Os testes foram compilados e executados com GCC 13.3 usando `-std=c99`.
+* **Testes de linha de comando (`testes/testes.c`):** funcionam em qualquer sistema com `gcc`.
+* **Visualizador gráfico (`main.c`):** usa a API do Windows (`windows.h`, `commdlg.h`, `shellapi.h`), portanto requer **Windows** e um compilador para Windows (por exemplo, MinGW-w64), ligando as bibliotecas `gdi32`, `comdlg32`, `shell32` e `user32`.
+* **Dataset:** arquivo de texto com cabeçalho e 13 colunas separadas por vírgula, em UTF-8 (arquivos UTF-16 são recusados). O repositório já traz `dataset/billboard_hot100_50k_dataset.txt` (50.000 registros).
 
 ### 4.2 Instruções 
 
