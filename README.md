@@ -161,10 +161,10 @@ Dataset: arquivo de texto com cabeçalho e 13 colunas separadas por vírgula, em
 
 ### 4.2 Instruções 
 
-**Testes (corretude e desempenho das árvores AVL e Rubro-Negra)**
+**Testes**
 
 ```bash
-git clone <link-do-repositorio>
+git clone <https://github.com/PedroWestin/Artistas-do-Seculo-XXl>
 cd Artistas-do-Seculo-XXl-main
 gcc -std=c99 -o testes_arvores testes/testes.c -lm
 ./testes_arvores                # usa o dataset da pasta dataset/ automaticamente
