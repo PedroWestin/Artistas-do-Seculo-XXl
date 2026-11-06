@@ -161,21 +161,27 @@ Os tempos de cada operação foram registrados a cada bateria para cálculo da m
 
 ### 4.2 Instruções 
 
-**Testes**
+Todos os comandos abaixo são executados a partir da **raiz do projeto**, em um único prompt (PowerShell ou Git Bash no Windows; no Linux/macOS use apenas a parte dos testes). É necessário ter o `gcc` instalado (no Windows, MinGW-w64).
 
 ```bash
-git clone <https://github.com/PedroWestin/Artistas-do-Seculo-XXl>
-cd Artistas-do-Seculo-XXl-main
+# 1. Obter o projeto
+git clone https://github.com/PedroWestin/Artistas-do-Seculo-XXl
+cd Artistas-do-Seculo-XXl
+
+# 2. Testes automatizados (qualquer sistema com gcc)
 gcc -std=c99 -o testes_arvores testes/testes.c -lm
-./testes_arvores                # usa o dataset da pasta dataset/ automaticamente
-```
+./testes_arvores                                       # usa o dataset da pasta dataset/ automaticamente
 
-```bash
+# 3. Visualizador gráfico (somente Windows)
 gcc -o billtree.exe main.c -mwindows -lgdi32 -lcomdlg32 -lshell32 -luser32
-billtree.exe                                          # abre uma janela para escolher o dataset
-billtree.exe dataset\billboard_hot100_50k_dataset.txt  # carrega o dataset informado
+./billtree.exe                                         # abre uma janela para escolher o dataset
+./billtree.exe dataset/billboard_hot100_50k_dataset.txt  # carrega o dataset informado
 ```
 
+**Observações**
+* Se o projeto foi baixado como `.zip` pelo GitHub, a pasta extraída se chama `Artistas-do-Seculo-XXl-main`; nesse caso, o `cd` do passo 1 deve apontar para ela.
+* Os passos 2 e 3 são independentes: é possível executar apenas os testes ou apenas o visualizador.
+* No `cmd` do Windows, use `testes_arvores.exe` e `billtree.exe dataset\billboard_hot100_50k_dataset.txt` (sem o `./`, e com barra invertida no caminho).
 ### 4.3 Estrutura do repositório 
 ```
 /main.c                       → visualizador gráfico AVL x Rubro-Negra (Windows)
